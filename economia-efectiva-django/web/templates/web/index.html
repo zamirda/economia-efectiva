@@ -1,0 +1,217 @@
+{% load static %}<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Economía Efectiva · Créditos por libranza e inversión</title>
+<meta name="description" content="Economía Efectiva, Sogamoso y Bogotá: créditos por libranza e inversión con excedentes de liquidez.">
+<style>
+:root{--gold:#d4af37;--gold2:#f3d06b;--bg:#0a0a0a;--card:#151515;--txt:#fff;--mut:#d0d0d0;--line:#3a3115;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:72px;font-size:100%}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.65}
+body.contrast{--bg:#000;--card:#000;--txt:#fff;--mut:#fff;--gold:#ffd700;--gold2:#ffd700;--line:#ffd700}
+body.gray{filter:grayscale(1)}
+body.readable{font-family:Verdana,Tahoma,Arial,sans-serif;letter-spacing:.04em;word-spacing:.12em;line-height:1.9}
+body.links a{text-decoration:underline!important}
+body.nomotion *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+a{color:var(--gold2)}
+:focus-visible{outline:3px solid var(--gold2);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,10,10,.97);border-bottom:1px solid var(--gold);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--gold);font-weight:800;font-size:1.15rem;text-decoration:none}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+nav{display:flex;gap:14px;flex-wrap:wrap}
+nav a{color:var(--txt);text-decoration:none;font-size:.92rem;font-weight:600}
+nav a:hover{color:var(--gold2)}
+.hero{text-align:center;padding:52px 16px 44px;background:radial-gradient(circle at 50% 0,#2a2208 0,#0a0a0a 65%)}
+.hero img{width:min(240px,64vw);border-radius:16px;box-shadow:0 0 40px rgba(212,175,55,.35)}
+.hero h1{margin:18px 0 8px;font-size:clamp(2rem,6vw,3.1rem);color:var(--gold)}
+.hero p{max-width:700px;margin:0 auto 22px;color:var(--mut);font-size:1.08rem}
+.btn{display:inline-block;border:2px solid var(--gold);background:linear-gradient(135deg,#f3d06b,#b8901f);color:#000;font-weight:800;padding:11px 22px;border-radius:999px;text-decoration:none;cursor:pointer;font:inherit;font-weight:800;margin:4px}
+.btn.alt{background:transparent;color:var(--gold2)}
+.btn.wa{background:#fff;color:#000;border-color:#fff}
+section{max-width:1050px;margin:0 auto;padding:44px 16px}
+h2{color:var(--gold);font-size:1.7rem;margin:0 0 6px}
+h2::after{content:"";display:block;width:70px;height:3px;background:var(--gold);margin-top:8px}
+.lead{color:var(--mut);max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.card h3{margin:0 0 8px;color:var(--gold2);font-size:1.1rem}
+.card p,.card ul{margin:0 0 8px;color:var(--mut)}
+.card ul{padding-left:18px}
+.num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#000;font-weight:800;margin-bottom:8px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+.stat{background:#fff;color:#000;border-radius:12px;padding:14px;text-align:center}
+.stat b{display:block;font-size:1.6rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.chip{border:1px solid var(--gold);padding:8px 14px;border-radius:999px;background:var(--card);font-weight:600;font-size:.95rem}
+.aviso{border-left:4px solid var(--gold);background:var(--card);padding:12px 16px;border-radius:0 10px 10px 0;margin-top:20px;color:var(--mut);font-size:.95rem}
+form{display:grid;gap:12px;margin-top:20px;max-width:640px}
+label{font-weight:700;color:var(--gold2);display:grid;gap:4px}
+input,select,textarea{width:100%;padding:11px;border-radius:10px;border:1px solid var(--gold);background:#000;color:#fff;font:inherit}
+.note{font-size:.88rem;color:var(--mut)}
+footer{border-top:1px solid var(--gold);text-align:center;padding:26px 16px 96px;color:var(--mut);font-size:.9rem}
+#a11y{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:40}
+#a11yBtn{width:56px;height:56px;border-radius:50%;border:3px solid #000;background:var(--gold2);color:#000;font-size:1.6rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.6)}
+#a11yPanel{display:none;position:absolute;right:0;bottom:66px;width:min(290px,86vw);background:#000;border:2px solid var(--gold);border-radius:14px;padding:14px}
+#a11yPanel.open{display:block}
+#a11yPanel h3{margin:0 0 10px;color:var(--gold2);font-size:1rem}
+#a11yPanel button{display:block;width:100%;margin:6px 0;padding:10px;border-radius:10px;border:1px solid var(--gold);background:#151515;color:#fff;font:inherit;cursor:pointer;text-align:left}
+#a11yPanel button[aria-pressed="true"]{background:var(--gold2);color:#000;font-weight:800}
+.row{display:flex;gap:6px}.row button{text-align:center!important}
+.skip{position:absolute;left:-999px;top:0;background:var(--gold2);color:#000;padding:8px 14px;z-index:60}
+.skip:focus{left:8px}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header>
+<a class="brand" href="#inicio"><img src="{% static 'web/logo.jpg' %}" alt="Logo de Economía Efectiva">Economía Efectiva</a>
+<nav aria-label="Principal"><a href="#nosotros">Nosotros</a><a href="#inversion">Inversión</a><a href="#credito">Crédito</a><a href="#alianzas">Alianzas</a><a href="#sedes">Sedes</a><a href="#etica">Ética</a><a href="#contacto">Contacto</a></nav>
+</header>
+<main id="contenido">
+<div class="hero" id="inicio">
+<img src="{% static 'web/logo.jpg' %}" alt="Logo de Economía Efectiva">
+<h1>Economía Efectiva</h1>
+<p>Te acompañamos con créditos por libranza y con una forma de hacer rendir tus excedentes de liquidez, de manera clara y sin complicaciones.</p>
+<a class="btn" href="#contacto">Quiero información</a>
+<a class="btn alt" href="#sedes">Ver nuestras sedes</a>
+</div>
+
+<section id="nosotros">
+<h2>Quiénes somos</h2>
+<p class="lead">Somos una empresa con presencia en Sogamoso y Bogotá, aliada de MISSION SAS, compañía colombiana creada en 2014 que otorga y comercializa créditos cuya cuota se descuenta directamente de la nómina o de la mesada pensional. Su operación está bajo vigilancia de la Superintendencia.</p>
+<div class="stats">
+<div class="stat"><b>2014</b>Año de fundación del originador</div>
+<div class="stat"><b>+40</b>Convenios en el país</div>
+<div class="stat"><b>7</b>Oficinas propias</div>
+</div>
+</section>
+
+<section id="inversion">
+<h2>Invierte tus excedentes</h2>
+<p class="lead">Si cuentas con dinero que no necesitas de inmediato, puedes diversificar y buscar un rendimiento por encima del que ofrecen muchas alternativas tradicionales.</p>
+<div class="grid">
+<div class="card"><span class="num">1</span><h3>Te vinculas</h3><p>Ingresas a la Fiduciaria Central, que administra el proceso.</p></div>
+<div class="card"><span class="num">2</span><h3>Participas en créditos</h3><p>Adquieres derechos económicos individuales sobre créditos ya desembolsados.</p></div>
+<div class="card"><span class="num">3</span><h3>Pago por descuento</h3><p>Las cuotas se cobran directamente de la nómina o la mesada del deudor, lo que facilita el recaudo.</p></div>
+</div>
+<p class="aviso">Todos los créditos son otorgados únicamente por MISSION SAS. Toda inversión tiene riesgos y la rentabilidad no está garantizada: pide asesoría antes de decidir.</p>
+</section>
+
+<section id="credito">
+<h2>Crédito por libranza</h2>
+<p class="lead">Un crédito cuya cuota sale de tu pago mensual, con un equipo que te guía en cada etapa, desde la solicitud hasta el desembolso.</p>
+<div class="grid">
+<div class="card"><h3>Para quién</h3><ul><li>Miembros de la Policía Nacional y de las Fuerzas Militares</li><li>Docentes de Secretarías de Educación</li><li>Pensionados de entidades públicas y privadas</li><li>Empleados de alcaldías y gobernaciones</li></ul></div>
+<div class="card"><h3>Cómo te ayudamos</h3><ul><li>Asesoría personalizada</li><li>Orientación con los documentos</li><li>Seguimiento hasta el desembolso</li></ul></div>
+<div class="card"><h3>Cobertura</h3><p>Más de 40 convenios en todo el territorio nacional permiten atender a personas de distintos sectores.</p></div>
+</div>
+</section>
+
+<section id="alianzas">
+<h2>Alianzas</h2>
+<p class="lead">Trabajamos con entidades pagadoras y empresas de libranza para que tu descuento por nómina o mesada sea posible.</p>
+<div class="chips">
+<span class="chip">MISSION SAS</span><span class="chip">Fiduciaria Central</span><span class="chip">Policía Nacional</span><span class="chip">Fuerzas Militares</span><span class="chip">Secretarías de Educación</span><span class="chip">Pensionados públicos</span><span class="chip">Pensionados privados</span><span class="chip">Alcaldías</span><span class="chip">Gobernaciones</span><span class="chip">Otras empresas de libranza</span>
+</div>
+</section>
+
+<section id="sedes">
+<h2>Nuestras sedes</h2>
+<div class="grid">
+<div class="card"><h3>Sogamoso</h3><p>Cll 12 No. 10-48, Of. 205</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Cll+12+No.+10-48+Sogamoso" target="_blank" rel="noopener">Ver en el mapa</a></div>
+<div class="card"><h3>Bogotá</h3><p>Cll 17 No. 6-57, Of. 333</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Cll+17+No.+6-57+Bogota" target="_blank" rel="noopener">Ver en el mapa</a></div>
+<div class="card"><h3>Oficina principal de MISSION</h3><p>Av. Carrera 45 # 118-30, Of. 201, Bogotá</p><p>Lunes a viernes, 8:00 a. m. a 1:00 p. m. y 2:00 p. m. a 5:30 p. m.</p><p>Tel. 333 602 5014 · WhatsApp 333 256 5570</p></div>
+</div>
+</section>
+
+<section id="etica">
+<h2>Ética y transparencia</h2>
+<p class="lead">El originador cuenta con un canal de denuncias, creado según la Circular Externa 100-000011 de 2021 de la Superintendencia de Sociedades, para promover la ética y prevenir la corrupción.</p>
+<div class="grid">
+<div class="card"><h3>Quién puede usarlo</h3><p>Empleados, contratistas, proveedores, clientes o cualquier tercero, de forma segura, confidencial y, si lo prefiere, anónima.</p></div>
+<div class="card"><h3>Qué se puede reportar</h3><ul><li>Soborno o corrupción</li><li>Conflictos de interés</li><li>Uso indebido de recursos</li><li>Incumplimientos del código de ética</li></ul></div>
+<div class="card"><h3>Cómo escribir</h3><p><a href="mailto:canaldenuncias@mission.com.co">canaldenuncias@mission.com.co</a></p><p>Se garantiza confidencialidad y protección contra represalias para quien denuncie de buena fe.</p></div>
+</div>
+</section>
+
+<section id="contacto">
+<h2>Contáctanos</h2>
+<p class="lead">Déjanos tus datos y te respondemos por WhatsApp o correo.<br>
+<a href="mailto:economiaefectivasogamoso@gmail.com">economiaefectivasogamoso@gmail.com</a> · <a href="tel:+573232258654">323 225 8654</a> · <a href="tel:+573208282398">+57 320 828 2398</a></p>
+<form id="f" novalidate>
+<label>Nombre completo<input id="nombre" required autocomplete="name"></label>
+<label>Teléfono o WhatsApp<input id="tel" type="tel" required autocomplete="tel"></label>
+<label>Correo electrónico<input id="mail" type="email" autocomplete="email"></label>
+<label>Me interesa<select id="tipo"><option>Invertir mis excedentes de liquidez</option><option>Crédito por libranza</option><option>Otra consulta</option></select></label>
+<label>Mensaje<textarea id="msg" rows="4"></textarea></label>
+<div>
+<button class="btn wa" type="button" data-wa="573232258654">WhatsApp 323 225 8654</button>
+<button class="btn wa" type="button" data-wa="573208282398">WhatsApp 320 828 2398</button>
+<button class="btn" type="button" id="enviaMail">Enviar mensaje</button>
+</div>
+<p class="note" id="estado" role="status" aria-live="polite"></p>
+</form>
+</section>
+</main>
+<footer>© 2026 Economía Efectiva · Sogamoso y Bogotá</footer>
+
+<div id="a11y">
+<div id="a11yPanel" role="dialog" aria-label="Opciones de accesibilidad">
+<h3>Accesibilidad</h3>
+<div class="row"><button type="button" id="fMas" aria-label="Aumentar texto">A+</button><button type="button" id="fMenos" aria-label="Reducir texto">A−</button></div>
+<button type="button" data-t="contrast" aria-pressed="false">Alto contraste</button>
+<button type="button" data-t="gray" aria-pressed="false">Escala de grises</button>
+<button type="button" data-t="readable" aria-pressed="false">Fuente legible</button>
+<button type="button" data-t="links" aria-pressed="false">Subrayar enlaces</button>
+<button type="button" data-t="nomotion" aria-pressed="false">Sin animaciones</button>
+<button type="button" id="reset">Restablecer</button>
+</div>
+<button id="a11yBtn" type="button" aria-label="Abrir opciones de accesibilidad" aria-expanded="false">♿</button>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const MAIL="economiaefectivasogamoso@gmail.com";
+let size=100;const st={};
+function save(){try{localStorage.setItem("ee-a11y",JSON.stringify({size,st}))}catch(e){}}
+function apply(){
+document.documentElement.style.fontSize=size+"%";
+document.querySelectorAll("[data-t]").forEach(b=>{const on=!!st[b.dataset.t];document.body.classList.toggle(b.dataset.t,on);b.setAttribute("aria-pressed",on)});
+}
+try{const s=JSON.parse(localStorage.getItem("ee-a11y")||"null");if(s){size=s.size||100;Object.assign(st,s.st||{})}}catch(e){}
+apply();
+$("a11yBtn").onclick=()=>{const o=$("a11yPanel").classList.toggle("open");$("a11yBtn").setAttribute("aria-expanded",o)};
+$("fMas").onclick=()=>{size=Math.min(160,size+10);apply();save()};
+$("fMenos").onclick=()=>{size=Math.max(80,size-10);apply();save()};
+document.querySelectorAll("[data-t]").forEach(b=>b.onclick=()=>{st[b.dataset.t]=!st[b.dataset.t];apply();save()});
+$("reset").onclick=()=>{size=100;Object.keys(st).forEach(k=>st[k]=false);apply();save()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")$("a11yPanel").classList.remove("open")});
+function datos(){
+const n=$("nombre").value.trim(),t=$("tel").value.trim();
+if(!n||!t){$("estado").textContent="Por favor escribe tu nombre y tu teléfono.";(n?$("tel"):$("nombre")).focus();return null}
+return "Hola, soy "+n+".\nTeléfono: "+t+"\nCorreo: "+($("mail").value.trim()||"No indicado")+"\nMe interesa: "+$("tipo").value+"\nMensaje: "+($("msg").value.trim()||"Quisiera más información.")+"\n\nEnviado desde la página de Economía Efectiva.";
+}
+document.querySelectorAll("[data-wa]").forEach(b=>b.onclick=()=>{
+const d=datos();if(!d)return;
+window.open("https://wa.me/"+b.dataset.wa+"?text="+encodeURIComponent(d),"_blank","noopener");
+$("estado").textContent="Se abrió WhatsApp con tu mensaje listo. Solo pulsa enviar.";
+});
+const CSRF="{{ csrf_token }}";
+$("enviaMail").onclick=async()=>{
+const d=datos();if(!d)return;
+const e=$("estado");e.textContent="Enviando…";
+try{
+const r=await fetch("{% url 'contacto' %}",{method:"POST",headers:{"Content-Type":"application/json","X-CSRFToken":CSRF},body:JSON.stringify({nombre:$("nombre").value.trim(),telefono:$("tel").value.trim(),correo:$("mail").value.trim(),tipo:$("tipo").value,mensaje:$("msg").value.trim()})});
+const j=await r.json();
+if(r.ok&&j.ok){e.textContent="¡Listo! Recibimos tu mensaje y te contactaremos pronto.";$("f").reset();return}
+throw new Error(j.error||"fallo");
+}catch(err){
+location.href="mailto:"+MAIL+"?subject="+encodeURIComponent("Consulta desde la página web - Economía Efectiva")+"&body="+encodeURIComponent(d);
+e.textContent="No pudimos enviarlo desde la página; se abrió tu correo con el mensaje listo.";
+}
+};
+</script>
+</body>
+</html>

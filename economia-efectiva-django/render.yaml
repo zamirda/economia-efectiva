@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: economia-efectiva
+    runtime: python
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn economia_efectiva.wsgi:application"
+    healthCheckPath: /salud/
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CONTACT_EMAIL
+        value: economiaefectivasogamoso@gmail.com
+      - key: RESEND_API_KEY
+        sync: false
