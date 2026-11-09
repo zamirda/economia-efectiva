@@ -1,0 +1,15 @@
+# Render con Docker (usa el Dockerfile del proyecto)
+services:
+  - type: web
+    name: economia-efectiva
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /salud/
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: CONTACT_EMAIL
+        value: economiaefectivasogamoso@gmail.com
+      - key: RESEND_API_KEY
+        sync: false
