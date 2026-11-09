@@ -1,0 +1,15 @@
+# Prueba local con Docker: http://localhost:8000
+services:
+  web:
+    build: .
+    container_name: economia-efectiva-django
+    ports:
+      - "8000:8000"
+    environment:
+      SECRET_KEY: ${SECRET_KEY:-docker-local-cambia-esto}
+      DEBUG: "0"
+      CONTACT_EMAIL: ${CONTACT_EMAIL:-economiaefectivasogamoso@gmail.com}
+      RESEND_API_KEY: ${RESEND_API_KEY:-}
+      EMAIL_HOST_USER: ${EMAIL_HOST_USER:-}
+      EMAIL_HOST_PASSWORD: ${EMAIL_HOST_PASSWORD:-}
+    restart: unless-stopped

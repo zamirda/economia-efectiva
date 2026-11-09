@@ -51,7 +51,7 @@ jobs:
 
           c = Client(HTTP_HOST="localhost")
           for ruta in ("/salud/", "/"):
-              r = c.get(ruta)
+              r = c.get(ruta, secure=True)
               print(ruta, "->", r.status_code)
               assert r.status_code == 200, f"{ruta} devolvió {r.status_code}"
           PY
@@ -78,4 +78,19 @@ jobs:
           for i in $(seq 1 20); do
             if curl -fsS http://localhost:8000/salud/; then
               echo
-              echo "==> El contenedor responde
+              echo "==> El contenedor responde correctamente"
+              exit 0
+            fi
+            echo "Esperando... ($i/20)"
+            sleep 3
+          done
+          echo "==> El contenedor no respondió. Registros:"
+          docker logs ee
+          exit 1
+
+      - name: Probar la página principal
+        run: curl -fsS -o /dev/null -w "Inicio -> %{http_code}\n" http://localhost:8000/
+
+      - name: Apagar el contenedor
+        if: always()
+        run: docker rm -f ee

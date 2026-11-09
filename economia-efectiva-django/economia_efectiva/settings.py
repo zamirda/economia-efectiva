@@ -62,7 +62,10 @@ STORAGES = {
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-if not DEBUG:
+# HTTPS solo cuando corre en Render o con FORZAR_HTTPS=1 (servidor propio con HTTPS).
+# En Docker local (http://localhost:8000) queda apagado para que funcione sin certificado.
+FORZAR_HTTPS = bool(RENDER_HOST) or os.environ.get("FORZAR_HTTPS") == "1"
+if FORZAR_HTTPS and not DEBUG:
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECURE_SSL_REDIRECT = True
     SECURE_REDIRECT_EXEMPT = [r"^salud/$"]

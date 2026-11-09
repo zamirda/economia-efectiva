@@ -1,14 +1,12 @@
+# Render con Docker (usa el Dockerfile del proyecto)
 services:
   - type: web
     name: economia-efectiva
-    runtime: python
+    runtime: docker
     plan: free
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn economia_efectiva.wsgi:application"
+    dockerfilePath: ./Dockerfile
     healthCheckPath: /salud/
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.12.3
       - key: SECRET_KEY
         generateValue: true
       - key: CONTACT_EMAIL
