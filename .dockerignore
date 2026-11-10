@@ -1,9 +1,9 @@
 .git
-.venv
-__pycache__
-*.pyc
-staticfiles
-.env
-README.md
-*.zip
 .github
+**/.venv
+**/__pycache__
+**/*.pyc
+**/staticfiles
+**/.env
+**/README.md
+*.zip

@@ -1,3 +1,5 @@
+# Dockerfile en la RAÍZ del repositorio (Render lo encuentra con la ruta por defecto ./Dockerfile).
+# El proyecto Django vive en la carpeta economia-efectiva-django/.
 FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -5,10 +7,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY economia-efectiva-django/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY economia-efectiva-django/ .
 
 # Recopila los archivos estáticos (la clave aquí es solo temporal para el build)
 RUN SECRET_KEY=clave-temporal-de-build python manage.py collectstatic --no-input
